@@ -13,7 +13,6 @@ def count_calls(method: Callable) -> Callable:
     def wrapper(self, *args, **kwargs):
         ''' Invokes the given method after incrementing its call counter 
         '''
-        
         if isinstance(self._redis, redis.Redis):
             self._redis.incr(method.__qualname__)
         return method(self, *args, **kwargs)
@@ -72,8 +71,7 @@ class Cache():
         self._redis.set(gen, data)
         return gen
 
-    def get(self, key: str,
-            fn: Optional[Callable] = None) -> Union[str, bytes, int, float]:
+    def get(self, key: str,fn: Optional[Callable] = None) -> Union[str, bytes, int, float]:
         ''' def get '''
         value = self._redis.get(key)
         return value if not fn else fn(value)
