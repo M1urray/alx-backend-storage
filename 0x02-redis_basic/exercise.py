@@ -10,7 +10,7 @@ def count_calls(method: Callable) -> Callable:
     ''' Tracks the number of calls made to a method in a Cache class.
     '''
     @wraps(method)
-    def wrapper(self, *args, **kwargs) -> Any:
+    def wrapper(self, *args, **kwargs):
         ''' Invokes the given method after incrementing its call counter 
         '''
         
@@ -30,7 +30,7 @@ def call_history(method: Callable) -> Callable:
         outp_m = key_m + ":outputs"
         data = str(args)
         self._redis.rpush(inp_m, data)
-        fin = method(self, *args, **kwds)
+        fin = method(self, *args, **kwargs)
         self._redis.rpush(outp_m, str(fin))
         return fin
     return wrapper
