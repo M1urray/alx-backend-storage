@@ -17,6 +17,7 @@ This project contains tasks for learning to use the Redis NoSQL data storage app
   + Remember to conserve the original `Redis.get` behavior if the key does not exist.
   + Also, implement 2 new methods: `get_str` and `get_int` that will automatically parametrize `Cache.get` with the correct conversion function.
   + The following code should not raise an Exception:
+
     ```python
     cache = Cache()
 
@@ -54,6 +55,7 @@ This project contains tasks for learning to use the Redis NoSQL data storage app
 + [x] 4. **Retrieving lists**[exercise.py](exercise.py) contains a Python script with the following updates to the previous task:
   + In this task, we will implement a `replay` function to display the history of calls of a particular function.
   + The output generated should look like this:
+
     ```py
     >>> cache = Cache()
     >>> cache.store("foo")
@@ -72,3 +74,4 @@ This project contains tasks for learning to use the Redis NoSQL data storage app
   + Inside `get_page` track how many times a particular URL was accessed in the key `"count:{url}"` and cache the result with an expiration time of 10 seconds.
   + **Tip**: Use [http://slowwly.robertomurray.co.uk](http://slowwly.robertomurray.co.uk) to simulate a slow response and test your caching.
   + **Bonus**: implement this use case with decorators.ns - Web Stack programming ― Back-end
+  
